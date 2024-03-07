@@ -10,8 +10,14 @@ app.use(cors())
 app.use(morgan('dev'))
 app.use(express.json())
 connectDB()
-const port=8081
+const port=process.env.PORT || 8081;
 app.use("/api/v1/auth",router)
+
+if(process.env.NODE_ENV=="production"){
+    app.use(express.static("client/build"));
+}
+
+
 
 
 app.listen(port,()=>console.log(`Running on port ${port}`))
