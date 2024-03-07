@@ -84,7 +84,7 @@ const Register = () => {
 setSubmit(true)
 
     try {
-      const res = await axios.post(`http://localhost:8081/api/v1/auth/register`, { name, email, password });
+      const res = await axios.post(`https://emoji-game-3.onrender.com/api/v1/auth/register`, { name, email, password });
       console.log(res);
 
       if (res.data.success) {
