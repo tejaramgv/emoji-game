@@ -1,0 +1,179 @@
+/* Write your code here. */
+.container {
+  width: 50vw !important;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.781);
+  border-radius:15px;
+  padding: 20px;
+}
+.box {
+  display: flex;
+  justify-content: center;
+  height:90vh;
+  align-items:center;
+}
+@keyframes moveFromLeft {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-100%);
+  }
+}
+.container{
+  animation: moveFromLeft 1s ease-in-out;
+}
+body {
+  margin: 0;
+}
+.startbutton{
+  color:black;
+  width:20px;
+  font-size:15px;
+  text-align:center;
+  height:20px;
+  cursor:pointer;
+ 
+}
+.mon{
+  display:flex;
+justify-content:center;
+}
+.leader-image{
+  width:30px;margin:3px;
+  height:30px;
+  border-radius:50px;
+}
+.timer{
+  display:flex;
+  align-items:center;justify-content:space-between;
+}
+.timer span{
+  background: linear-gradient( #f30606,rgba(248, 248, 2, 0.993),#5bc51d);
+  background-clip: text;
+  color: transparent;
+  font-weight:bolder;
+}
+.scorecard{
+  display:flex;
+  align-items:center;
+  margin-top:10px;
+  width:40vw;
+  justify-content:space-evenly;
+
+}
+.board span{
+  background: linear-gradient( #f30606,rgba(248, 248, 2, 0.993),#5bc51d);
+  background-clip: text;
+  color: transparent;
+}
+.board{
+  display:flex;
+  flex-direction:column;
+
+  font-weight:bolder;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.rounds {
+
+  position: absolute;
+  background: linear-gradient( #ee7f36, #d1b130);
+  font-size:40px;
+  background-clip: text;
+  color: transparent;
+  top: 0;
+  left: 50%;
+  transform: translateY(-50%);
+  animation: floatAnimation 10s forwards;
+}
+
+@keyframes floatAnimation {
+  0% {
+      transform: translateX(-50%) translateX(0);
+  }
+  50% {
+      transform: translateX(-50%) translateX(10vh);
+  }
+  100% {
+      transform: translateX(-50%) translateX(0);
+      opacity: 0;
+  }
+}
+.scores{
+  margin-left:10px;
+  font-size:17px;
+  font-weight:bold;
+  
+
+  color:rgb(4, 243, 223);
+
+}
+
+.monkey{
+  background-color:transparent;
+  animation: moveFromLeft 1s ease-in-out;
+  border-radius:50%;
+}
+.monkeyCard{
+  padding:20px;
+  display:flex;
+  justify-content:center;
+  margin-top:60px;
+  height:50vh;
+  border-radius:10px;
+  width:50vw;
+  background-color: rgba(0, 0, 0, 0.781);
+  align-items:center;
+ 
+ 
+}
+.monkeyCard h1{
+  background: linear-gradient(rgba(248, 248, 2, 0.993),#5bc51d);
+  background-clip: text;
+  font-weight:bolder;
+    color: transparent;  
+}
+.monkeyCard p{
+  background:radial-gradient(red,yellow);
+  background-clip: text;
+  font-weight:bolder;
+  font-size:18px;
+    color: transparent;  
+
+}
+
+@media only screen and (max-width:768px) {
+
+.monkeyCard{
+  display:flex;
+  flex-direction:column;
+  width:80vw
+}
+.scorecard{
+  width:100vw;
+
+}
+.monkey{
+  width:200px;
+  height:150px;
+}
+.mon{
+  height:90vh;
+  align-items:center;
+}
+.container{
+  width:95vw !important;
+ 
+}
+.rounds{
+margin-top:150px !important;
+}
+
+
+
+
+}

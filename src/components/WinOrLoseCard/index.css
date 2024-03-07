@@ -1,0 +1,86 @@
+/* Write your code here. */
+.lose {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  background-color:rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+.lose h1 {
+  padding: 10px;
+  color: orange;
+  font-style:italic;
+  border-radius: 5px;
+}
+.lose p {
+  padding: 10px;
+
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.lose img {
+  width: 200px;
+  height: 150px;
+  margin: 30px;
+}
+body{
+  font-style:italic;
+  background-image:url("https://assets.ccbp.in/frontend/react-js/match-game-bg.png");
+  background-size:cover ;
+  
+}
+
+button {
+  outline: none;
+  padding: 10px;
+  font-size:20px;
+  border-radius: 5px;
+  border:none;
+  color: white;
+  font-weight:bold;
+  cursor:pointer;
+  font-style:italic;
+  background-color: orange;
+}
+@keyframes moveFromLeft {
+  from {
+      transform: translateY(-100%);
+  }
+  to {
+      transform: translateY(0);
+  }
+}
+.lose{
+  animation: moveFromLeft 1s ease-in-out;
+}
+@media only screen and (max-width:768px) {
+.lose img{
+  width:120px;
+  height:100px;
+  margin:10px;
+  
+}
+.lose{
+  width:90vw;
+
+}
+.lose h1{
+  font-size:18px;
+padding:5px;
+}
+.lose p{
+  font-size:12px;
+  padding:5px;
+}
+button{
+  font-size:0px !important;
+  width:80px;
+  padding:5px;
+
+  cursor:pointer;
+}
+
+
+}
