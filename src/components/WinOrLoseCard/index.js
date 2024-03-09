@@ -13,7 +13,7 @@ const WinOrLoseCard = props => {
 const updateScore=async()=>{
   try{
   const token=localStorage.getItem('token')
-  const url = 'https://emoji-game-3.onrender.com/api/v1/auth/updatescore';
+  const url = 'http://localhost:8081/api/v1/auth/updatescore';
 
 const headers = {
   Authorization: `Bearer ${token}`,

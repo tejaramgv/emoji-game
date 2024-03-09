@@ -82,7 +82,7 @@ const EmojiGame = props => {
       const otp=localStorage.getItem("otp")
       
     const token=localStorage.getItem('token')
-    const url = 'https://emoji-game-3.onrender.com/api/v1/auth/getscore';
+    const url = 'http://localhost:8081/api/v1/auth/getscore';
   
   const headers = {
     Authorization: `Bearer ${token}`,
