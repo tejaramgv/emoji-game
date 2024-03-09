@@ -1,10 +1,13 @@
 import {useState,useRef,useEffect,useContext} from 'react'
 import AudioPlayer from 'react-audio-player';
+import { ClipLoader } from 'react-spinners';
 import axios from 'axios'
 import EmojiCard from '../EmojiCard'
 import './index.css'
 import WinOrLoseCard from '../WinOrLoseCard'
 import {store} from '../../App'
+import Modal from '../Model'
+
 
 const EmojiGame = props => {
   const {emojisList} = props
@@ -18,7 +21,9 @@ const EmojiGame = props => {
   const [toggle,setToggle]=useContext(store)
   const [playagain,setPlayAgain]=useState(true);
   const [time, setTime] = useState(50)
-  const [start,setStart]=useState(false)
+  const [start,setStart]=useState()
+  const [loaded,setLoaded]=useState(false)
+
   // TIMER
   const starter=()=>{
     setStart(true)
@@ -90,7 +95,9 @@ if(token && otp){
     console.log(res.data.message)
     console.log(res.data.leader)
     setRes({...result,top:res.data.message})
-    setLeader(res.data.leader)}
+    setLeader(res.data.leader)
+    setLoaded(true)
+}
   
   else{
    console.log(res.data.message) 
@@ -129,14 +136,15 @@ if(token && otp){
 
   const playAgain = () => {
     setPlayAgain(!playagain);
-    setTime(30)
+    setTime(50)
+    setLoaded(false)
     setOut({res: false})
     setRes({...result, count: 0})
     setClicked([])
     setRounds({score:0,round:1})
   }
   return (
-    <>
+    <>{(loaded&& result.top<=5)&&<Modal/>}
       {!toggle? (
         <div className="mon">
           <center>
@@ -158,8 +166,8 @@ if(token && otp){
         </div>
       ) : (
         <>
-          {(rounds.score === 12 || rounds.score === 0) && (
-            <>
+          {(rounds.score === 12 || rounds.score === 0) &&(start) && (
+            <> 
               <h1 className="rounds">Round: {rounds.round}</h1>
               <AudioPlayer
                 ref={audioRef}
@@ -174,13 +182,13 @@ if(token && otp){
           <div className="board">
             <span className="leader">Leader Board</span>
              <img className="leader-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5k-W-W4FESsmSymS7Xo5CR6HpAU56fIP1EA&usqp=CAU" alt=""/>
-        <span>{leader}</span></div>
+        {loaded?<span>{leader}</span>:<ClipLoader color="#ffffff"  size={15} />}</div>
           <div><span className="scores">Score {result.count}</span>
-            <span className="scores">Top Score {result.top}</span></div>
+        <span className="scores">Top Score{loaded?<span > {result.top}</span>:<ClipLoader color="#ffffff"  size={15} />}</span></div>
             <div className="timer">
             <img src="https://assets.ccbp.in/frontend/react-js/stopwatch-timer.png" alt=""/>
             <span>{time}sec</span></div>
-          {!start&&  <img className="startbutton" onClick={starter}src="https://assets.ccbp.in/frontend/react-js/play-icon-img.png " alt=""/>}
+          {(!start && loaded)&&  <img className="startbutton" onClick={starter}src="https://assets.ccbp.in/frontend/react-js/play-icon-img.png " alt=""/>}
             </div></center>
 }
           <div className="box">

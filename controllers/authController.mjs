@@ -109,7 +109,7 @@ export const getScoreController=async(req,res)=>{
 const {name}=req
 const result=await User.findOne({name})
 const max=await User.find().sort({topScore:-1}).limit(1)
-console.log(max[0].name);
+console.log(max[0].topScore);
 if(!result){
 return res.status(200).send({success:false,message:"no user find"})
 }
@@ -117,7 +117,7 @@ if(!max){
   return res.status(200).send({success:false,message:"no max find"})
 }
 
-res.status(200).send({success:true,message:result.topScore,leader:max[0].name})
+res.status(200).send({success:true,message:result.topScore,leader:max[0].name,score:max[0].topScore})
 
 
 }

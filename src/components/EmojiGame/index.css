@@ -2,6 +2,7 @@
 .container {
   width: 50vw !important;
   display: flex;
+  margin-top:130px;
   justify-content: space-evenly;
   flex-wrap: wrap;
   background-color: rgba(0, 0, 0, 0.781);
@@ -11,7 +12,7 @@
 .box {
   display: flex;
   justify-content: center;
-  height:90vh;
+  height:60vh;
   align-items:center;
 }
 @keyframes moveFromLeft {
@@ -158,11 +159,11 @@ justify-content:center;
 
 }
 .monkey{
-  width:200px;
+  width:180px;
   height:150px;
 }
 .mon{
-  height:90vh;
+  height:60vh;
   align-items:center;
 }
 .container{

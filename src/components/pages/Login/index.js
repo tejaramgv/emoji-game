@@ -58,7 +58,7 @@ const handleSubmit=async()=>{
         
   
         if (res.data.success) {
-         const response = await axios.post('http://localhost:8081/api/v1/auth/send-otp', { email });
+         const response = await axios.post('https://emoji-game-3.onrender.com/api/v1/auth/send-otp', { email });
       console.log(response.data);
       if (response.data.success){
      toast.success(response.data.message);

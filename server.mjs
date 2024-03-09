@@ -6,7 +6,9 @@ import bcrypt from 'bcrypt'
 import router from './routes/authRoute.mjs'
 import cors from 'cors'
 const app=express()
-app.use(cors())
+app.use(cors({
+    origin: 'https://emoji-game-3.onrender.com',
+  }));
 app.use(morgan('dev'))
 app.use(express.json())
 connectDB()
